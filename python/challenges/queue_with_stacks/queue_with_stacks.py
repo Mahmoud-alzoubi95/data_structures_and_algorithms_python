@@ -5,6 +5,7 @@ class Pseudo_Queue:
     def __init__(self):
         self.stack1 = Stack()
         self.stack2 = Stack()
+        self.count = 0
         self.rear = 0
         
 
@@ -17,15 +18,22 @@ class Pseudo_Queue:
         
 
     def dequeue(self):
-        """
-        do dequeue with pop methods from Stack using FIFO
-        """
-        if self.stack1.is_empty() and self.stack2.is_empty():
-            return 'empty queue !!!'
-        elif self.stack2.is_empty():
-            while self.stack1.top:
+        '''
+        it used to return the first vlaue(node) in your 'PseudoQueue', first pushed:
+        '''
+        if self.stack2.is_empty():
+            while self.count > 0:
                 self.stack2.push(self.stack1.pop())
-        return self.stack2.pop()
+                self.count-=1
+            result = self.stack2.pop()
+            while True:
+                self.stack1.push(self.stack2.pop())
+                self.count +=1
+                if self.stack2.is_empty():
+                    return result
+        else:
+            return "stack is empty!"
+                
 
 
     def __str__(self):
