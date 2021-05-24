@@ -21,13 +21,13 @@ class Pseudo_Queue:
         '''
         it used to return the first vlaue(node) in your 'PseudoQueue', first pushed:
         '''
-        if self.stack2.is_empty():
+        if self.stack1.is_empty():
             while self.count > 0:
                 self.stack2.push(self.stack1.pop())
                 self.count-=1
             result = self.stack2.pop()
             while True:
-                self.stack1.push(self.stack2.pop())
+                self.stack2.push(self.stack1.pop())
                 self.count +=1
                 if self.stack2.is_empty():
                     return result
@@ -52,10 +52,10 @@ class Pseudo_Queue:
 
 if __name__ == "__main__":
     new = Pseudo_Queue()
-    # new.enqueue("A")
-    # new.enqueue("B")
+    new.enqueue("A")
+    new.enqueue("B")
     # new.enqueue("C")
-    # print(new)
+    print(new)
     # new.dequeue()
     new.dequeue()
     print(new)
