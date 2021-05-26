@@ -20,23 +20,29 @@ def multi_bracket_validation(input):
         for i,j in merged_list:
             if count == 0:
                 if i < j:
-                    return "error unmatched opening { remaining."
+                    print("error unmatched opening { remaining.")
+                    return False
                 elif j < i:
-                    return "error closing }"
+                    print("error closing }")
+                    return False
             elif count == 1:
                 if i < j:
-                    return "error unmatched opening ( remaining."
+                    print("error unmatched opening ( remaining.")
+                    return False
                 elif j < i:
-                    return "error closing )"
+                    print("error closing )")
+                    return False
             elif count == 2:
                 if i < j:
-                    return "error unmatched opening [ remaining."
+                    print("error unmatched opening [ remaining.")
+                    return False
                 elif j < i:
-                    return "error closing ]"
+                    print("error closing ]")
+                    return False
 
             count+=1
 
 
 if __name__ == "__main__":
-    call = multi_bracket_validation("(")
+    call = multi_bracket_validation("()")
     print(call)
