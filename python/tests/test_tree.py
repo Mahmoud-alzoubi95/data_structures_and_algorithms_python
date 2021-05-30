@@ -149,15 +149,3 @@ def prepare_bst_2():
     bst.add(0)
     bst.add(27)
     return bst
-
-@pytest.fixture
-def prepare_for_breadth_first_1():
-    graph = {
-    'A' : ['B','C'],
-    'B' : ['D', 'E'],
-    'C' : ['F'],
-    'D' : [],
-    'E' : ['F'],
-    'F' : []
-    }
-    return graph
