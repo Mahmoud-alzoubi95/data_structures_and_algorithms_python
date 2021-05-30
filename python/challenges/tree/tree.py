@@ -65,6 +65,60 @@ class BinaryTree:
         return output
 
 
+
+
+class BinarySearchTree(BinaryTree):
+    def add(self, value):
+
+        """
+        Add elements in form of binray search
+        No return. Just sorting
+        """
+        if not self.root:
+            self.root = Node(value)
+        else:
+            current = self.root
+            while (current):
+                if current.value > value: # Got to left
+                    if current.left == None: # if current is a leaf
+                        current.left = Node(value)
+                        break
+                    current = current.left
+                else:
+                    if current.right == None: # if current is a leaf
+                        current.right = Node(value)
+                        break
+                    current = current.right
+
+    def contains(self,value):
+        """
+        Test if the desired value is exist or not
+        boolean return
+        """
+
+        current = self.root
+        while (current):
+                if current.value==value:
+                    return True
+                elif current.value > value: # Got to left
+                    # if current.left == None: # if current is a leaf
+                    #     current.left = Node(value)
+                    #     break
+                    if current.left==value:
+                        return True
+                    current = current.left
+                else:
+                    # if current.right == None: # if current is a leaf
+                    #     current.right = Node(value)
+                    #     break
+                    if current.right==value:
+                        return True
+                    current = current.right
+        return False
+
+
+
+
 if __name__=='__main__':
 
     bt = BinaryTree()
@@ -75,5 +129,17 @@ if __name__=='__main__':
     bt.root.left.right = Node(9)
     bt.root.right.left = Node(1)
     bt.root.right.right = Node(-4)
-    # bt.root.right.right.right = Node(100)
+    bt.root.right.right.right = Node(100)
+    
+    bt_in=BinaryTree()
+    print(bt.preOrder())
+    print(bt.inOrder())
+    print(bt.postOrder())
+    bst=BinarySearchTree()
+    bst.add(23)
+    bst.add(8)
+    bst.add(4)
+    bst.add(42)
+    bst.add(27)
     print(bt)
+    # print(bst)
