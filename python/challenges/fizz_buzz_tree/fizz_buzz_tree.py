@@ -17,9 +17,9 @@ def FizzBuzzTree(ary_tree):
             if node.value % 5 ==0 and node.value % 3==0:
                 node.value='FizzBuzz'
             elif node.value % 5 ==0 :
-                print(node.value,node.value % 5 ==0)
+                # print(node.value,node.value % 5 ==0)
                 node.value='Buzz'
-                print(node.value)
+                # print(node.value)
             elif node.value % 3 ==0:
                 node.value='Fizz'
             else :
