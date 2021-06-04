@@ -82,24 +82,25 @@ class BinaryTree:
         _walk(self.root)
         return self.max
 
-    def breadth_first(self,visited, graph, node):
-        self.visited = [] # List to keep track of visited nodes.
-        self.queue = []     #Initialize a queue
-
         
-        self.visited.append(node)
-        self.queue.append(node)
-        output=[]
-        while self.queue:
-            s = self.queue.pop(0) 
-            # print (s, end = " ") 
-            output.append(s)
-
-            for neighbour in graph[s]:
-                if neighbour not in visited:
-                    self.visited.append(neighbour)
-                    self.queue.append(neighbour)
-        return output
+    def breadth_first(self,tree):
+        temp = []
+        results = []
+        
+        if self.root:
+            temp.append(self.root)
+            
+            while temp:
+                node = temp.pop(0)
+                results.append(node.value)
+            
+                if node.left:
+                    temp.append(node.left)
+                if node.right:
+                    temp.append(node.right)
+            return results
+        else:
+            return 'Tree is empty'
 
 class BinarySearchTree(BinaryTree):
     def add(self, value):
@@ -150,35 +151,49 @@ class BinarySearchTree(BinaryTree):
 if __name__=='__main__':
 
     bt = BinaryTree()
-    bt.root = Node(7)
-    bt.root.left = Node(13)
-    bt.root.right = Node(5)
-    bt.root.left.left = Node(8)
-    bt.root.left.right = Node(9)
-    bt.root.right.left = Node(1)
-    bt.root.right.right = Node(-4)
-    bt.root.right.right.right = Node(100)
+    # bt.root = Node(7)
+    # bt.root.left = Node(13)
+    # bt.root.right = Node(5)
+    # bt.root.left.left = Node(8)
+    # bt.root.left.right = Node(9)
+    # bt.root.right.left = Node(1)
+    # bt.root.right.right = Node(-4)
+    # bt.root.right.right.right = Node(100)
 
     bt_in=BinaryTree()
-    print(bt.preOrder())
-    print(bt.inOrder())
-    print(bt.postOrder())
+    # print(bt.preOrder())
+    # print(bt.inOrder())
+    # print(bt.postOrder())
     bst=BinarySearchTree()
     bst.add(23)
     bst.add(8)
     bst.add(4)
     bst.add(42)
     bst.add(27)
-    max_value=bt.find_maximum_value()
-    print(max_value)
+    # max_value=bt.find_maximum_value()
+    # print(max_value)
     # print(bt)
     # print(bst)
-    graph = {
-    'A' : ['B','C'],
-    'B' : ['D', 'E'],
-    'C' : ['F'],
-    'D' : [],
-    'E' : ['F'],
-    'F' : []
-    }
-    print(bt.breadth_first([],graph, 'A'))
+    # graph = {
+    # 'A' : ['B','C'],
+    # 'B' : ['D', 'E'],
+    # 'C' : ['F'],
+    # 'D' : [],
+    # 'E' : ['F'],
+    # 'F' : []
+    # }
+    # print(bt.breadth_first([],graph, 'A'))
+
+
+    Breadth_first = BinaryTree()
+    Breadth_first.root = Node(6)
+    Breadth_first.root.left = Node(-1)
+    Breadth_first.root.left.left = Node(10)
+    Breadth_first.root.left.left.left = Node(18)
+    Breadth_first.root.left.left.left.right = Node(28)
+    Breadth_first.root.right = Node(5)
+    Breadth_first.root.right.left = Node(7)
+    Breadth_first.root.right.right = Node(3)
+    Breadth_first.root.right.right.left = Node(93)
+    Breadth_first.root.right.right.right = Node(3999)
+    print(Breadth_first.breadth_first(Breadth_first))

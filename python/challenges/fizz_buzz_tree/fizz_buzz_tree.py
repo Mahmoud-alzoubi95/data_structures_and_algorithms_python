@@ -2,6 +2,30 @@
 from tree import *
 
 
+def breadth_first(self, tree):
+        temp = []
+        results = []
+        
+        if self.root:
+            temp.append(self.root)
+            
+            while temp:
+                node = temp.pop(0)
+                results.append(node.value)
+            
+                if node.left:
+                    temp.append(node.left)
+                if node.right:
+                    temp.append(node.right)
+            return results
+        else:
+            return 'Tree is empty'
+
+
+
+
+
+
 def FizzBuzzTree(ary_tree):
     """
     Return a collection sorted by pre order
@@ -47,8 +71,8 @@ if __name__ == "__main__":
     bt.root.left.left=Node(10)
     # bt.root.left.left.right=Node("A")
     # bt.root.left.left.left=Node("B")
-    # bt.root.right=Node("m")
-    # bt.root.right.right=Node(18)
-    # bt.root.right.left=Node(10)
-
+    bt.root.right=Node("m")
+    bt.root.right.right=Node(18)
+    bt.root.right.left=Node(10)
+    
     print(FizzBuzzTree(bt))
