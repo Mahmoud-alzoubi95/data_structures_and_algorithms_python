@@ -102,12 +102,12 @@ def test_contain_3(prepare_bst_2):
     actual=bst.contains(-1)
     assert expected==actual
 
-def test_breadth_first_1(prepare_for_breadth_first_1):
-    graph=prepare_for_breadth_first_1
-    bt=BinaryTree()
-    expected =['A', 'B', 'C', 'D', 'E', 'F', 'F']
-    actual=bt.breadth_first([],graph, 'A')
-    assert expected==actual
+# def test_breadth_first_1(prepare_for_breadth_first_1):
+#     graph=prepare_for_breadth_first_1
+#     bt=BinaryTree()
+#     expected =['A', 'B', 'C', 'D', 'E', 'F', 'F']
+#     actual=bt.breadth_first([],graph, 'A')
+#     assert expected==actual
     
 @pytest.fixture
 def prepare_bt():
