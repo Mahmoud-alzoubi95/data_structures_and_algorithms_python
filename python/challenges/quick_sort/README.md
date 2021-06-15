@@ -16,3 +16,4 @@ Space complexity Big O(n)
 Time complexity Big O(n^2)
 
 ## Solution
+<img src="../../../assests/ch28.png">
