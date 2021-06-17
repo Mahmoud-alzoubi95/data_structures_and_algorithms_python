@@ -25,9 +25,3 @@ n = len(arr)
 quickSort(arr, 0, n-1)
 print("Sorted array is:")
 print(arr)
-
-arr = [10, 7, 8, 9, 1, 5]
-n = len(arr)
-quickSort(arr, 0, n-1)
-print("Sorted array is:")
-print(arr)
