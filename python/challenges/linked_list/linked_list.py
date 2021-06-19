@@ -68,4 +68,4 @@ if __name__ == "__main__":
   linked.append_node("Alzoubi")
   linked.append_node("Mahmoud")
   print(linked)
-  print(linked.includes("khaled"),linked.includes("Mahmoud"),linked.includes(27))
+#   print(linked.includes("khaled"),linked.includes("Mahmoud"),linked.includes(27))
