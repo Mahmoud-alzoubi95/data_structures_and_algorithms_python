@@ -9,13 +9,10 @@ class LinkedList:
 
     def add(self,data):
         node = Node(data)
-        if self.head :
-            current = self.head 
-            while current.next:
-                current=current.next
-            current=current.next
-        else:
-            self.head=node
+        if self.head:
+            node.next = self.head
+        self.head = node
+            
 
 
     def __str__(self) :
