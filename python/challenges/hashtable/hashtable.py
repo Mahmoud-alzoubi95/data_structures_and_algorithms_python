@@ -61,12 +61,11 @@ class Hashtable:
 
     def get(self,key):
         hashed_key = self.hash(key)
-        current = self.map[hashed_key].head
         if self.map[hashed_key]:
-            while current:
-                if current.data[0] == key:
-                    return current.data[1]
-                current = current.next
+            while self.map[hashed_key].head:
+                if self.map[hashed_key].head.data[0] == key:
+                    return self.map[hashed_key].head.data[1]
+                self.map[hashed_key].head = self.map[hashed_key].head.next
             return "Not found"
         return "Not found"
 
@@ -101,7 +100,8 @@ if __name__=="__main__":
     x.add("hasan","father")
     x.add("alzoubi","Last Name")
     x.contains("mahmoud")
-    
+    print(x)
+    print("-----------------------")
     print("False or not:  ",x.contains("Khaled"))
 
     print("-----------------------")
