@@ -3,7 +3,7 @@
 
 ## Challenge Description
 
-input: two tree , output: list with intersection Values
+input: two trees , output: list with intersection Values
 
 
 ## Approach & Efficiency
