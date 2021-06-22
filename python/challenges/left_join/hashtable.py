@@ -13,6 +13,8 @@ class LinkedList:
             node.next = self.head
         self.head = node
             
+
+
     def __str__(self) :
         list = ""
         current = self.head
@@ -22,6 +24,8 @@ class LinkedList:
         list+="Null"
 
         return list
+
+
 
 class Hashtable:
 
@@ -50,6 +54,9 @@ class Hashtable:
        self.map[hashed_key].append(key_value)
        return self.__str__()
 
+            
+
+
     def get(self,key):
         hashed_key = self.hash(key)
         if self.map[hashed_key]:
@@ -59,6 +66,7 @@ class Hashtable:
                 self.map[hashed_key].head = self.map[hashed_key].head.next
             return "Not found"
         return "Not found"
+
 
     def contains(self,key):
         hashed_key = self.hash(key)
@@ -82,53 +90,23 @@ class Hashtable:
                     current = current.next
         output+='None'
         return output
+        
+        
+if __name__=="__main__":
+    x = Hashtable()
+    x.add("mahmoud","Engineer")
+    x.add("hasan","father")
+    x.add("alzoubi","Last Name")
+    x.contains("mahmoud")
+    print(x)
+    print("-----------------------")
+    print("False or not:  ",x.contains("Khaled"))
+
+    print("-----------------------")
+
+    print("True or not:  ",x.contains("mahmoud"))
+
+    print("-----------------------")
+    print("get value: ", x.get("mahmoud"))
+
     
-
-"******************************************************************"
-"code challenge 33"
-
-def left_join(hash1,hash2):
-    """[summary]
-
-    Args:
-        hash1 (bool): [description]
-        hash2 (bool): [description]
-
-    Returns:
-        [type]: [description]
-    """
-    output = []
-    single_elem = []
-    for elem in hash1.map:
-        if elem:
-            current = elem.head          
-            while current:
-                single_elem.append(current.data[0])
-                single_elem.append(current.data[1])
-                if hash2.contains(current.data[0]):
-                    single_elem.append(hash2.get(current.data[0]))
-                else:
-                    single_elem.append(None)
-                output.append(single_elem)
-                single_elem = []
-                current = current.next
-    return output
-
-
-if __name__ == "__main__":
-    h1 = Hashtable()
-    h1.add('fond','enamored')        
-    h1.add('fnod', 'anger')          
-    h1.add('fodn', 'employed')    
-    h1.add('donf', 'garb')           
-    h1.add('ofnd', 'usher')
-
-    h2 = Hashtable()
-    h2.add('fond', 'averse')
-    h2.add('fnod', 'delight')
-    h2.add('fodn', 'idle')
-    h2.add('guide', 'follow')
-    h2.add('flow', 'jam')
-
-
-    print(left_join(h1,h2))
